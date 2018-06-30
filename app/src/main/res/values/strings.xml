@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HelloKTX</string>
+    <string name="submit">Submit</string>
+    <string name="name">Put Your Name</string>
+    <string name="toast_message">Amazing Toast</string>
+    <string name="ok">Ok</string>
+</resources>
