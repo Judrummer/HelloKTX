@@ -6,11 +6,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-//GsonExtension.kt file
-inline fun <reified T> Gson.fromJson(json: String) = fromJson<T>(json, typeToken<T>())
-
-inline fun <reified T> typeToken() = object : TypeToken<T>() {}.type
-
 class GsonUnitTest {
 
     data class Employee(val name: String, val age: Int)
@@ -33,7 +28,7 @@ class GsonUnitTest {
         val gson = Gson()
 
         //Act
-        val actualEmployeeList: List<Employee> = gson.fromJson(json)
+        val actualEmployeeList: List<Employee> = gson.fromJson<List<Employee>>(json, object : TypeToken<List<Employee>>() {}.type)
 
         //Assert
         assertEquals(expectedEmployeeList, actualEmployeeList)

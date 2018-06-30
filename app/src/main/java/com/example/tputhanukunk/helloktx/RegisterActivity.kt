@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.toast
-import com.example.tputhanukunk.helloktx.extension.runActivityForResult
 import kotlinx.android.synthetic.main.activity_register.*
 
 
@@ -16,9 +15,9 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         btnSubmit.setOnClickListener {
-            runActivityForResult<HelloActivity>(HelloActivity.REQUEST_CODE) {
-                putExtra(HelloActivity.EXTRA_NAME, etName.text.toString())
-            }
+            val intent = Intent(this, HelloActivity::class.java)
+            intent.putExtra(HelloActivity.EXTRA_NAME, etName.text.toString())
+            startActivityForResult(intent, HelloActivity.REQUEST_CODE)
         }
     }
 
